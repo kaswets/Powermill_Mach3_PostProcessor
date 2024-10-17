@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+
+
+<!-- 5-axis Table-Table configuration -->
+<!-- Table static apart from rotary motion, Head moves in X, Y & Z -->
+<!-- Both rotary axes on table controlled by B & C -->
+<!-- Note the restricted movement on B axis -->
+
+
+<machine xmlns="x-schema:PowermillMachineTool" POST="pmpMultiaxis.*">
+
+  <!-- Where things are attached to the machine -->
+  <table_attach_point PART="table" X="0" Y="0" Z="0" />
+  <head_attach_point PART="head" X="-279.16" Y="-413.365" Z="410.0" I="0" J="0" K="1" />
+
+<!-- Frame -->
+<machine_part>
+        <model_list>
+          <dmt_file>
+            <path FILE="Machine_parts_NewZas/Frame.dmt" />
+            <rgb R="150" G="150" B="150" />
+          </dmt_file>
+         </model_list>
+          </machine_part>
+
+  <!-- The head -->
+  <machine_part>
+    <axis>
+      <control_info ADDRESS="X"  MIN="0" MAX="760" />
+      <simple_linear I="1" J="0" K="0" />
+    </axis>
+		  <model_list>
+          <dmt_file>
+            <path FILE="Machine_parts_NewZas/X_as.dmt" />
+            <rgb R="150" G="150" B="150" />
+          </dmt_file>
+        </model_list>
+    <machine_part>
+      <axis>
+
+ <control_info ADDRESS="Y" MIN="0" MAX="610" />
+        <simple_linear I="0" J="1" K="0" />
+      </axis>
+	  <model_list>
+          <dmt_file>
+            <path FILE="Machine_parts_NewZas/Y_as.dmt" />
+            <rgb R="150" G="150" B="140" />
+          </dmt_file>
+        </model_list>
+      <machine_part>
+        <axis>
+          <control_info ADDRESS="Z" VALUE="457.5"  MIN="0" MAX="457.5" />
+          <simple_linear I="0" J="0" K="1" />
+        </axis>
+        <model_list>
+          <dmt_file>
+            <path FILE="Machine_parts_NewZas/Z_as.dmt" />
+            <rgb R="150" G="140" B="150" />
+          </dmt_file>
+        </model_list>
+        <machine_part NAME="head" />
+      </machine_part>
+    </machine_part>
+  </machine_part>
+
+  <!-- The table -->
+  <machine_part>
+    <axis>
+      <control_info ADDRESS="B" MIN="-125" MAX="10" />
+      <simple_rotary X="0" Y="0" Z="0" I="0" J="1" K="0" />
+    </axis>
+    <model_list>
+      <dmt_file>
+        <path FILE="Machine_parts_NewZas/B_as.dmt" />
+        <rgb R="140" G="150" B="150" />
+      </dmt_file>
+    </model_list>
+    <machine_part>
+      <axis>
+        <control_info ADDRESS="C" />
+        <simple_rotary X="0" Y="0" Z="0" I="0" J="0" K="-1" />
+      </axis>
+      <model_list>
+        <dmt_file>
+          <path FILE="Machine_parts_NewZas/C_as.dmt" />
+          <rgb R="255" G="255" B="200" />
+        </dmt_file>
+      </model_list>
+      <machine_part NAME="table"/>
+    </machine_part>
+  </machine_part>
+
+</machine>
